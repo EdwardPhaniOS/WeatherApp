@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DEV_API_KEY</key>
+	<string>d6bfb8d977a825aeb92cb1aa0e2b869e</string>
+	<key>PROD_API_KEY</key>
+	<string>d6bfb8d977a825aeb92cb1aa0e2b869e</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your current location to check weather there</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
