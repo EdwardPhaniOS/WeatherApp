@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let scene = (scene as? UIWindowScene) else { return }
     
+    setUpWindow(usingSwiftUI: true, scene: scene)
+  }
+  
+  func setUpWindow(usingSwiftUI: Bool = false, scene: UIWindowScene) {
     window = UIWindow(windowScene: scene)
-    let vc = WeatherViewController(nibName: "WeatherViewController", bundle: nil)
-    window?.rootViewController = vc
+    
+    if usingSwiftUI {
+      let viewModel = WeatherViewVM()
+      let weatherView = WeatherView(viewModel: viewModel)
+      let vc = UIHostingController(rootView: weatherView)
+      window?.rootViewController = vc
+    } else {
+      let vc = WeatherViewController(nibName: "WeatherViewController", bundle: nil)
+      vc.configure()
+      window?.rootViewController = vc
+    }
+    
     window?.makeKeyAndVisible()
   }
 

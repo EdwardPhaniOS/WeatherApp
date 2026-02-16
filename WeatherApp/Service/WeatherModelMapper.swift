@@ -19,7 +19,7 @@ struct WeatherModelMapper {
     return model
   }
   
-  static func getImageName(conditionId: Int) -> String {
+  private static func getImageName(conditionId: Int) -> String {
     switch conditionId {
     case 200...232:
       return "cloud.bolt"

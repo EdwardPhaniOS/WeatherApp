@@ -15,8 +15,8 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var temperatureLabel: UILabel!
   @IBOutlet weak var cityLabel: UILabel!
   
-  let weatherService: WeatherService = WeatherService()
-  let locationManager = CLLocationManager()
+  var weatherService: WeatherService!
+  var locationManager: CLLocationManager!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +28,12 @@ class WeatherViewController: UIViewController {
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
     locationManager.requestLocation()
+  }
+  
+  func configure(weatherService: WeatherService = WeatherService(), 
+                 locationManager: CLLocationManager = CLLocationManager()) {
+    self.weatherService = weatherService
+    self.locationManager = locationManager
   }
   
   @IBAction func searchButtonPressed(_ sender: UIButton) {
